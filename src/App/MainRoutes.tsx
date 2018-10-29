@@ -3,15 +3,15 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
-import {Dashboard} from '../Modules/Dashboard';
 import {Finance} from '../Modules/Finance';
+import {Main} from '../Modules/Main';
 
 export class MainRoutes extends React.Component {
     public render(): React.ReactNode {
         return (
             <Router>
                 <section>
-                    <Route path='/' exact={true} component={Dashboard} />
+                    <Route path='/' exact={true} component={Main} />
                     <Route path='/finance' exact={true} component={Finance} />
                 </section>
             </Router>
