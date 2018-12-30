@@ -1,0 +1,47 @@
+.navigationItem {
+    display: flex;
+    padding: 10px;
+    border: none;
+    background-color: $white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+        width: 30px;
+    }
+
+    svg path {
+        fill: $secondary;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__title {
+        margin-left: 10px;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: $secondary;
+        transition: all 0.3s ease-in-out;
+
+        &.entered {
+            display: block;
+        }
+
+        &.exited,
+        &.exiting {
+            display: none;
+        }
+    }
+
+    &:hover,
+    &_active {
+        background-color: $primary;
+
+        span {
+            color: $white;
+        }
+
+        path {
+            fill: $white;
+        }
+    }
+}

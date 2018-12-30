@@ -1,13 +1,13 @@
 import * as React from 'react';
 
+import Navigation from './shell/navigation/Navigation';
+
 class App extends React.Component {
   public render() {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Finance-track app</h1>
-        </header>
-      </div>
+      <React.Fragment>
+        <Navigation />
+      </React.Fragment>
     );
   }
 }
