@@ -12,13 +12,10 @@ interface INavigationState {
 }
 
 export class Navigation extends React.Component<INavigationProps, INavigationState> {
-    constructor(props: INavigationProps) {
-        super(props);
 
-        this.state = {
-            navigationExpanded: false,
-            title: 'Navigation'
-        }
+    public state = {
+        navigationExpanded: false,
+        title: 'Navigation'
     }
 
     public toggleNavigationHandler = () => {

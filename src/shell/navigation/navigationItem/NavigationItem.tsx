@@ -6,7 +6,7 @@ import icons from '../../../shared/icons';
 export interface IRoute {
     title: string,
     path: string,
-    component: any
+    component: React.ReactNode
 }
 
 export interface INavigationItemProps extends IRoute {

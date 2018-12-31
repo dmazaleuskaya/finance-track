@@ -4,7 +4,7 @@
     justify-content: flex-start;
     padding: 10px;
     border: none;
-    background-color: $white;
+    background-color: var(--white);
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -15,14 +15,14 @@
     
     &:hover,
     &_active {
-        background-color: $primary;
+        background-color: var(--primary);
 
         span {
             color: #494949;
         }
 
         path {
-            fill: $white;
+            fill: var(--white);
         }
     }
 
@@ -36,7 +36,7 @@
     }
 
     svg path {
-        fill: $secondary;
+        fill: var(--secondary);
         transition: all 0.3s ease-in-out;
     }
 
@@ -44,7 +44,7 @@
         margin-left: 10px;
         font-size: 16px;
         text-transform: capitalize;
-        color: $secondary;
+        color: var(--secondary);
         transition: all 0.3s ease-in-out;
 
         &.entered {

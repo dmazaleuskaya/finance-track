@@ -10,6 +10,7 @@
   "rules": {
     "quotemark": [true, "single"],
     "ordered-imports": [false],
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-empty-interface": false
   }
 }

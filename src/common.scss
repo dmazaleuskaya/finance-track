@@ -1,10 +1,12 @@
-$white: #ffffff; // background, text
-$primary: #b5f5ec;
-$primaryLight: #e6fffb;
-$primaryDark: #08979c;
-$secondary: #747474;
-$secondaryLight: #a3a3a3;
-$secondaryDark: #494949;
+:root {
+    --white: #ffffff; // background, text
+    --primary: #b5f5ec;
+    --primaryLight: #e6fffb;
+    --primaryDark: #08979c;
+    --secondary: #747474;
+    --secondaryLight: #a3a3a3;
+    --secondaryDark: #494949;
+}
 
 body, * {
     margin: 0;
@@ -12,7 +14,7 @@ body, * {
 }
 
 body {
-    background-color: $primary;
+    background-color: var(--primary);
 }
 
 #root {
