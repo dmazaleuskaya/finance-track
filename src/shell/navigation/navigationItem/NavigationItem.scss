@@ -1,10 +1,35 @@
 .navigationItem {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
     padding: 10px;
     border: none;
     background-color: $white;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    &_exited {
+        justify-content: center;
+    }
+    
+    &:hover,
+    &_active {
+        background-color: $primary;
+
+        span {
+            color: #494949;
+        }
+
+        path {
+            fill: $white;
+        }
+    }
+
+     p {
+         display: flex;
+         align-items: center;
+     }
 
     svg {
         width: 30px;
@@ -29,19 +54,6 @@
         &.exited,
         &.exiting {
             display: none;
-        }
-    }
-
-    &:hover,
-    &_active {
-        background-color: $primary;
-
-        span {
-            color: $white;
-        }
-
-        path {
-            fill: $white;
         }
     }
 }

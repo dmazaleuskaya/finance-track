@@ -1,0 +1,9 @@
+.app {
+    display: flex;
+    height: 100%;
+}
+
+.app__main {
+    flex-grow: 1;
+    flex-shrink: 1;
+}

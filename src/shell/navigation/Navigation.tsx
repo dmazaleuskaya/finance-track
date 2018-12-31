@@ -3,25 +3,20 @@ import { CSSTransition } from 'react-transition-group';
 import NavigationItem, { IRoute } from './navigationItem/NavigationItem';
 
 interface INavigationProps {
-    readonly test?: string
+    routes: IRoute[]
 }
 
 interface INavigationState {
     navigationExpanded: boolean,
-    title: string,
-    routes: IRoute[]
+    title: string
 }
 
-class Navigation extends React.Component<INavigationProps, INavigationState> {
+export class Navigation extends React.Component<INavigationProps, INavigationState> {
     constructor(props: INavigationProps) {
         super(props);
 
         this.state = {
             navigationExpanded: false,
-            routes: [
-                { title: 'finance', path: '/finance' },
-                { title: 'home', path: '/' }
-            ],
             title: 'Navigation'
         }
     }
@@ -46,7 +41,7 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
                 >
                     {state => (
                         <div className='navigation__routes'>
-                            {this.state.routes.map((route, index) => {
+                            {this.props.routes.map((route, index) => {
                                 return (
                                     <React.Fragment key={index}>
                                         <NavigationItem {...route} navigationExpanded={this.state.navigationExpanded} expandedState={state} />
@@ -60,5 +55,3 @@ class Navigation extends React.Component<INavigationProps, INavigationState> {
         )
     }
 }
-
-export default Navigation;
