@@ -9,6 +9,8 @@
   },
   "rules": {
     "quotemark": [true, "single"],
-    "jsx-no-lambda": false
+    "ordered-imports": [false],
+    "jsx-no-lambda": false,
+    "no-empty-interface": false
   }
 }

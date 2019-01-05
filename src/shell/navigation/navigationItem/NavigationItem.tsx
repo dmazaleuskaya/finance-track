@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { TransitionStatus } from 'react-transition-group';
+import { NavLink } from 'react-router-dom';
 import icons from '../../../shared/icons';
 
 export interface IRoute {
     title: string,
     path: string,
+    component: React.ReactNode
 }
 
 export interface INavigationItemProps extends IRoute {
@@ -13,11 +15,21 @@ export interface INavigationItemProps extends IRoute {
 }
 
 const navigationItem = (props: INavigationItemProps) => {
+    const {
+        path,
+        title,
+        expandedState
+    } = props;
+
     const route = (
-        <button className='navigationItem navigationItem_expanded' type='button'>
-            <p dangerouslySetInnerHTML={{ __html: icons[props.title] }} />
-            <span className={`navigationItem__title ${props.expandedState}`}>{props.title}</span>
-        </button>
+        <NavLink
+            to={path}
+            exact={true}
+            className={`navigationItem navigationItem_${expandedState}`}
+            activeClassName='navigationItem_active'>
+            <p dangerouslySetInnerHTML={{ __html: icons[title] }} />
+            <span className={`navigationItem__title ${expandedState}`}>{title}</span>
+        </NavLink>
     );
 
     return (
