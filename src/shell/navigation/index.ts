@@ -1,2 +1,1 @@
-export {Navigation} from './Navigation';
-export { IRoute } from './navigationItem/NavigationItem';
+export { Navigation } from './Navigation'
