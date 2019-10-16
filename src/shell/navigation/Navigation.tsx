@@ -1,6 +1,10 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import NavigationItem, { IRoute } from './navigationItem/NavigationItem';
+import { string } from 'prop-types';
+
+import styles from './Navigation.module.css';
 
 interface INavigationProps {
     routes: IRoute[]
@@ -11,37 +15,31 @@ interface INavigationState {
     title: string
 }
 
-export class Navigation extends React.Component<INavigationProps, INavigationState> {
+const navigation = props => {
+    const [ navigationExpanded, setNavigationExpanded ] = useState(false);
+    const [ title, setTitle ] = useState('Navigation');
 
-    public state = {
-        navigationExpanded: false,
-        title: 'Navigation'
-    }
+    public const toggleNavigationHandler = () => {
+        setNavigationExpanded(!navigationExpanded);
+    };
 
-    public toggleNavigationHandler = () => {
-        this.setState(state => {
-            return { navigationExpanded: !state.navigationExpanded };
-        })
-    }
-
-    public render(): React.ReactNode {
         return (
-            <div className={`navigation ${this.state.navigationExpanded ? `navigation_expanded` : ``}`}>
-                <button className='navigation__toggle' type='button' onClick={this.toggleNavigationHandler}>
-                    <span className='navigation__toggle-logo'>FT</span>
-                    <span className={`navigation__toggle-text ${this.state.navigationExpanded ? `navigation__toggle-text_visible` : ``}`}>Finance Track</span>
+            <div className={`styles.navigation ${navigationExpanded ? `styles.navigation_expanded` : ``}`}>
+                <button className='styles.navigation__toggle' type='button' onClick={toggleNavigationHandler}>
+                    <span className='styles.navigation__toggle-logo'>FT</span>
+                    <span className={`styles.navigation__toggle-text ${navigationExpanded ? `styles.navigation__toggle-text_visible` : ``}`}>Finance Track</span>
                 </button>
                 <CSSTransition
-                    in={this.state.navigationExpanded}
+                    in={navigationExpanded}
                     timeout={300}
                     classNames='navigation__routes'
                 >
                     {state => (
                         <div className='navigation__routes'>
-                            {this.props.routes.map((route, index) => {
+                            {props.routes.map((route, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <NavigationItem {...route} navigationExpanded={this.state.navigationExpanded} expandedState={state} />
+                                        <NavigationItem {...route} navigationExpanded={navigationExpanded} expandedState={state} />
                                     </React.Fragment>
                                 )
                             })}
@@ -49,6 +47,7 @@ export class Navigation extends React.Component<INavigationProps, INavigationSta
                     )}
                 </CSSTransition>
             </div>
-        )
-    }
-}
+        );
+};
+
+export default navigation;

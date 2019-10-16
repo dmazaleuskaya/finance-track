@@ -3,6 +3,8 @@ import { TransitionStatus } from 'react-transition-group/Transition'
 import { NavLink } from 'react-router-dom'
 import icons from '../../../shared/icons'
 
+import styles from './NavigationItem.module.css';
+
 export interface IRoute {
   title: string
   path: string
@@ -15,22 +17,22 @@ export interface INavigationItemProps extends IRoute {
 }
 
 const navigationItem = (props: INavigationItemProps) => {
-  const { path, title, expandedState } = props
+  const { path, title, expandedState } = props;
 
   //TODO: remove type casting
   const route = (
     <NavLink
       to={path}
       exact={true}
-      className={`navigationItem navigationItem_${expandedState}`}
-      activeClassName='navigationItem_active'
+      className={`styles.navigationItem styles.navigationItem_${expandedState}`}
+      activeClassName='styles.navigationItem_active'
     >
       <p dangerouslySetInnerHTML={{ __html: (icons as any)[title] }} />
-      <span className={`navigationItem__title ${expandedState}`}>{title}</span>
+      <span className={`styles.navigationItem__title ${expandedState}`}>{title}</span>
     </NavLink>
-  )
-
-  return <React.Fragment>{route}</React.Fragment>
-}
+  );
+//short syntax of React.Fragment
+  return <>{route}</>
+};
 
 export default navigationItem
