@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import NavigationItem, { IRoute } from './navigationItem/NavigationItem';
+import {NavigationItem, IRoute } from './navigationItem/NavigationItem';
+
+import styles from './Navigation.module.css';
 
 interface INavigationProps {
     routes: IRoute[]
 }
-
+git sta
 interface INavigationState {
     navigationExpanded: boolean,
     title: string
@@ -18,18 +20,16 @@ export class Navigation extends React.Component<INavigationProps, INavigationSta
         title: 'Navigation'
     }
 
-    public toggleNavigationHandler = () => {
-        this.setState(state => {
-            return { navigationExpanded: !state.navigationExpanded };
-        })
+    toggleNavigationHandler = () => {
+        this.setState({ navigationExpanded: !this.state.navigationExpanded });
     }
 
     public render(): React.ReactNode {
         return (
-            <div className={`navigation ${this.state.navigationExpanded ? `navigation_expanded` : ``}`}>
-                <button className='navigation__toggle' type='button' onClick={this.toggleNavigationHandler}>
-                    <span className='navigation__toggle-logo'>FT</span>
-                    <span className={`navigation__toggle-text ${this.state.navigationExpanded ? `navigation__toggle-text_visible` : ``}`}>Finance Track</span>
+            <div className={ this.state.navigationExpanded ? styles.navigation_expanded : styles.navigation }>
+                <button className={styles.navigation__toggle} type='button' onClick={this.toggleNavigationHandler}>
+                    <span className={styles.navigation__toggle-logo}>FT</span>
+                    <span className={ this.state.navigationExpanded ? styles.navigation__toggle-text_visible : styles.navigation__toggle-text }>Finance Track</span>
                 </button>
                 <CSSTransition
                     in={this.state.navigationExpanded}
@@ -37,7 +37,7 @@ export class Navigation extends React.Component<INavigationProps, INavigationSta
                     classNames='navigation__routes'
                 >
                     {state => (
-                        <div className='navigation__routes'>
+                        <div className={styles.navigation__routes}>
                             {this.props.routes.map((route, index) => {
                                 return (
                                     <React.Fragment key={index}>
