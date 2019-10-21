@@ -7,7 +7,6 @@ import styles from './Navigation.module.css';
 interface INavigationProps {
     routes: IRoute[]
 }
-git sta
 interface INavigationState {
     navigationExpanded: boolean,
     title: string
