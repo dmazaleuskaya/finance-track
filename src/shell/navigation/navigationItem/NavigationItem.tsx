@@ -29,7 +29,7 @@ export const NavigationItem: React.FC<INavigationItemProps> = (props: INavigatio
       activeClassName='navigationItem_active'
     >
       <p dangerouslySetInnerHTML={{ __html: (icons as any)[title] }} />
-      <span className={`styles.navigationItem__title.${expandedState}`}>{title}</span>
+      <span className={styles.navigationItem__title}>{title}</span>
     </NavLink>
   );
 //short syntax of React.Fragment

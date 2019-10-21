@@ -1,5 +1,5 @@
 .navigation {
-    width: 125px;
+    width: 110px;
     height: 100%;
     background-color: var(--white);
     transition: width 0.3s ease-in-out;
@@ -7,7 +7,7 @@
 }
 
 .navigation_expanded {
-    width: 250px;
+    width: 210px;
     height: 100%;
     background-color: var(--white);
     transition: width 0.3s ease-in-out;
@@ -29,7 +29,7 @@
     outline: none;
 }
 
-.navigation__toggle-logo {
+.navigation__toggle_logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.navigation__toggle-text {
+.navigation__toggle_text {
     visibility: hidden;
     width: 0;
     font-size: 18px;
@@ -51,12 +51,18 @@
     transition: all 0.3s ease-in-out;
 }
 
-.navigation__toggle-text_visible {
+.navigation__toggle_text_visible {
     visibility: visible;
     flex-grow: 1;
+    width: 0;
+    font-size: 18px;
+    color: var(--secondary);
+    text-align: left;
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
 }
 
-.navigation__toggle:hover .navigation__toggle-logo {
+.navigation__toggle:hover .navigation__toggle_logo {
     background-color: var(--secondaryLight);
 }
 
