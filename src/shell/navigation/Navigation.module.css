@@ -1,5 +1,5 @@
 .navigation {
-    width: 75px;
+    width: 125px;
     height: 100%;
     background-color: var(--white);
     transition: width 0.3s ease-in-out;
@@ -8,6 +8,10 @@
 
 .navigation_expanded {
     width: 250px;
+    height: 100%;
+    background-color: var(--white);
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .navigation__toggle {
@@ -52,7 +56,6 @@
     flex-grow: 1;
 }
 
-.navigation__toggle:hover,
 .navigation__toggle:hover .navigation__toggle-logo {
     background-color: var(--secondaryLight);
 }
