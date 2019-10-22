@@ -7,8 +7,8 @@ export class FinanceLayout extends React.Component {
     public render(): React.ReactNode {
         return (
             <div className={styles.FinanceLayout}>
-            <h1>Finance module here</h1>
-            <Header />
+                <h1>Finance module here</h1>
+                <Header />
             </div>
         )
     }
