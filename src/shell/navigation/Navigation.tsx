@@ -27,8 +27,8 @@ export class Navigation extends React.Component<INavigationProps, INavigationSta
         return (
             <div className={ this.state.navigationExpanded ? styles.navigation_expanded : styles.navigation }>
                 <button className={styles.navigation__toggle} type='button' onClick={this.toggleNavigationHandler}>
-                    <span className={styles.navigation__toggle-logo}>FT</span>
-                    <span className={ this.state.navigationExpanded ? styles.navigation__toggle-text_visible : styles.navigation__toggle-text }>Finance Track</span>
+                    <span className={styles.navigation__toggle_logo}>FT</span>
+                    <span className={ this.state.navigationExpanded ? styles.navigation__toggle_text_visible : styles.navigation__toggle_text }>Finance Track</span>
                 </button>
                 <CSSTransition
                     in={this.state.navigationExpanded}

@@ -15,23 +15,21 @@ export interface INavigationItemProps extends IRoute {
   expandedState: TransitionStatus
 }
 
-export const NavigationItem: React.FC<INavigationItemProps> = (props: INavigationItemProps) => {
+export const NavigationItem: React.FC<INavigationItemProps> = (props) => {
   const { path, title, expandedState } = props
 
-  //TODO: remove type casting
-  const route = (
+  const route: JSX.Element = (
     <NavLink
       to={path}
       exact={true}
-      className={styles.navigationItem}
-      // className={styles.navigationItem} styles.navigationItem_${expandedState}}
-      activeClassName='navigationItem_active'
+      className={`styles.navigationItem styles.navigationItem_${expandedState}`}
+      activeClassName={styles.navigationItem_active}
     >
       <p dangerouslySetInnerHTML={{ __html: (icons as any)[title] }} />
       <span className={`styles.navigationItem__title.${expandedState}`}>{title}</span>
     </NavLink>
   )
 
-  return <React.Fragment>{route}</React.Fragment>
+  return {route}
 }
 
