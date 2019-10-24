@@ -10,7 +10,7 @@ type IHeaderProps = {
 }
 
 type IHeaderState = {
-	targetSumValue: string | number | any,
+	targetSumValue: string,
 	targetSumConfirmed: boolean,
 	totalSum: number,
 	currentTransactionValue: string,
@@ -35,7 +35,7 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 		this.setState({ targetSumConfirmed: true });
 	}
 
-	targetSumInputChangedHandler = (event: any) => {
+	targetSumInputChangedHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ targetSumValue: event.target.value, inputChanged: true });
 	}
 
@@ -54,11 +54,11 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 		});
 	}
 
-	transactionAmountChangedHandler = (event: any) => {
+	transactionAmountChangedHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ currentTransactionValue: event.target.value });
 	}
 
-	transactorNameChangedHandler = (event: any) => {
+	transactorNameChangedHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 		this.setState({ transactor: event.target.value });
 	}
 

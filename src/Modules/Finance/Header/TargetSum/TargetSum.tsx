@@ -3,7 +3,7 @@ import * as React from 'react';
 import styles from '../Form.module.css';
 
 interface ITargetSumProps {
-	value: string | number | any,
+	value: string | number,
 	buttonValue: string,
 	clicked: any,
 	changed: any,
