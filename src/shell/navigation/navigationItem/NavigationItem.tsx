@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { TransitionStatus } from 'react-transition-group/Transition'
 import { NavLink } from 'react-router-dom'
 import icons from '../../../shared/icons'
@@ -16,23 +16,19 @@ export interface INavigationItemProps extends IRoute {
   expandedState: TransitionStatus
 }
 
-export const NavigationItem: React.FC<INavigationItemProps> = (props: INavigationItemProps) => {
+export const NavigationItem: React.FC<INavigationItemProps> = props => {
   const { path, title, expandedState } = props
 
-  //TODO: remove type casting
-  const route = (
+  return (
     <NavLink
       to={path}
       exact={true}
-      className={styles.navigationItem}
-      // className={styles.navigationItem} styles.navigationItem_${expandedState}}
-      activeClassName='navigationItem_active'
+      className={`styles.navigationItem styles.navigationItem_${expandedState}`}
+      activeClassName={styles.navigationItem_active}
     >
-      <p dangerouslySetInnerHTML={{ __html: (icons as any)[title] }} />
+      <p dangerouslySetInnerHTML={{ __html: (icons as Record<string, string>)[title] }} />
       <span className={styles.navigationItem__title}>{title}</span>
     </NavLink>
-  );
-//short syntax of React.Fragment
-  return <>{route}</>
-};
+  )
+}
 

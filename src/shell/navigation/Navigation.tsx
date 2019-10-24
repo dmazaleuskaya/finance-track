@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import {NavigationItem, IRoute } from './navigationItem/NavigationItem';
 
