@@ -1,0 +1,27 @@
+.Header {
+	min-height: 10vh;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.TargetSum {
+	flex-basis: 30%;
+	align-self: stretch;
+	margin: 5px;
+}
+
+.Total {
+	flex-basis: 15%;
+	align-self: stretch;
+	margin: 5px;
+}
+
+.Transaction {
+	flex-basis: 45%;
+	flex-grow: 1;
+	align-self: stretch;
+	margin: 5px;
+}
