@@ -33,7 +33,7 @@ export class Navigation extends React.Component<INavigationProps, INavigationSta
                 <CSSTransition
                     in={this.state.navigationExpanded}
                     timeout={300}
-                    classNames='navigation__routes'
+                    classNames={styles.navigation__routes}
                 >
                     {state => (
                         <div className={styles.navigation__routes}>
