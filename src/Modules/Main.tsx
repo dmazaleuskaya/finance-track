@@ -6,6 +6,6 @@ export class Main extends React.Component {
             <React.Fragment>
                 <h1>Home page</h1>
             </React.Fragment>
-        )
+        );
     }
 }
