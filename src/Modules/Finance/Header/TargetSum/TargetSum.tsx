@@ -17,7 +17,7 @@ export const TargetSum: React.FC<ITargetSumProps> = (props: ITargetSumProps) => 
 	let Input: any;
 	 	if (props.confirmed)  {
 		 Input = (<span className={styles.InputConfirmed}>Current target sum is: { props.value } USD</span>);
-		 } else {
+		} else {
 			Input = (
 				<input 
 					className={styles.Input} 
