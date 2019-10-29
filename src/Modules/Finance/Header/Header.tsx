@@ -21,7 +21,7 @@ type IHeaderState = {
 
 export class Header extends React.Component<IHeaderProps, IHeaderState> {
 
-	state: IHeaderState = {
+	state = {
 		targetSumValue: '',
 		targetSumConfirmed: false,
 		totalSum: 0,
@@ -31,7 +31,7 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 		transactor: ''
 	}
 
-	targetSumConfirmedHandler = () => {
+	targetSumConfirmedHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		this.setState({ targetSumConfirmed: true });
 	}
 
@@ -39,16 +39,16 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 		this.setState({ targetSumValue: event.target.value, inputChanged: true });
 	}
 
-	targetSumResetHandler = () => {
+	targetSumResetHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		this.setState({ targetSumValue: '', targetSumConfirmed: false });
 	}
 
-	targetSumCorrectedHandler = () => {
+	targetSumCorrectedHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		this.setState({ targetSumConfirmed: false });
 	}
 
-	transactionConfirmedHandler =() => {
-		this.setState({ 
+	transactionConfirmedHandler =(event: React.MouseEvent<HTMLButtonElement>) => {
+		this.setState({
 			transactionConfirmed: true,
 			totalSum: this.state.totalSum + +this.state.currentTransactionValue
 		});
@@ -64,8 +64,8 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 
 	render() {
 		return (
-			<div className={styles.Header}>
-				<div className={styles.TargetSum}>
+			<div className={styles.header}>
+				<div className={styles.target_sum}>
 					<TargetSum 
 						value={this.state.targetSumValue} 
 						buttonValue={ this.state.targetSumConfirmed ? 'Correct' : 'Confirm'}
@@ -76,10 +76,10 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 						corrected={this.targetSumCorrectedHandler}
 						touched={this.state.inputChanged} />
 				</div>
-				<div className={styles.Total}>
+				<div className={styles.total}>
 					<Total value={this.state.totalSum}/>
 				</div>
-				<div className={styles.Transaction}>
+				<div className={styles.transaction}>
 					<Transaction 
 						value={this.state.currentTransactionValue}
 						clicked={this.transactionConfirmedHandler}

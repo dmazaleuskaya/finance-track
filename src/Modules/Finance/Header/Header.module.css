@@ -1,4 +1,4 @@
-.Header {
+.header {
 	min-height: 10vh;
 	width: 100%;
 	display: flex;
@@ -7,19 +7,19 @@
 	margin: 0 auto;
 }
 
-.TargetSum {
+.target_sum {
 	flex-basis: 30%;
 	align-self: stretch;
 	margin: 5px;
 }
 
-.Total {
+.total {
 	flex-basis: 15%;
 	align-self: stretch;
 	margin: 5px;
 }
 
-.Transaction {
+.transaction {
 	flex-basis: 45%;
 	flex-grow: 1;
 	align-self: stretch;

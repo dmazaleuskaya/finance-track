@@ -4,36 +4,36 @@ import styles from '../Form.module.css';
 
 interface ITransactionProps {
 	value: string,
-	clicked: any,
+	clicked: (event: React.MouseEvent<HTMLButtonElement>) => void,
 	transactor: string,
-	amountChanged: any,
-	nameChanged: any
+	amountChanged: (event: React.ChangeEvent<HTMLInputElement>) => void,
+	nameChanged: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Transaction: React.FC<ITransactionProps> = (props: ITransactionProps) => {
+export const Transaction: React.FC<ITransactionProps> = props => {
 	return (
-		<div className={styles.Form}>
-			<h3 className={styles.Title}>Transaction</h3>
-			<div className={styles.InputField}>
-				<input 
-					className={styles.Input} 
-					type="text" 
+		<div className={styles.form}>
+			<h3 className={styles.title}>Transaction</h3>
+			<div className={styles.input_field}>
+				<input
+					className={styles.input}
+					type="text"
 					value={props.transactor}
 					placeholder="Transactor's name"
-					onChange={props.nameChanged} 
+					onChange={props.nameChanged}
 				/>
-				<input 
-					className={styles.Input} 
-					type="text" 
+				<input
+					className={styles.input}
+					type="text"
 					value={props.value}
 					placeholder="Please, enter transaction's amount"
-					onChange={props.amountChanged} 
+					onChange={props.amountChanged}
 				/>
 			</div>
-			<button 
-					className={styles.Confirm}
-					onClick={props.clicked}>Confirm
-				</button>
+			<button
+				className={styles.confirm}
+				onClick={props.clicked}>Confirm
+			</button>
 		</div>
 	);
 }
