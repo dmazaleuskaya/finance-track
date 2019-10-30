@@ -17,7 +17,7 @@ export interface INavigationItemProps extends IRoute {
 }
 
 export const NavigationItem: React.FC<INavigationItemProps> = (props: INavigationItemProps) => {
-  const { path, title, expandedState } = props
+  const { path, title, expandedState } = props;
 
   //TODO: remove type casting
   const route = (

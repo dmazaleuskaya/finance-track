@@ -3,7 +3,7 @@ import * as React from 'react';
 import styles from '../Form.module.css';
 
 interface ITransactionProps {
-	value: string,
+	value: number,
 	clicked: (event: React.MouseEvent<HTMLButtonElement>) => void,
 	transactor: string,
 	amountChanged: (event: React.ChangeEvent<HTMLInputElement>) => void,
