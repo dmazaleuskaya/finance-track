@@ -24,12 +24,11 @@ export const NavigationItem: React.FC<INavigationItemProps> = (props: INavigatio
     <NavLink
       to={path}
       exact={true}
-      // className={styles.navigationItem}
       className={`styles.navigationItem styles.navigationItem_${expandedState}`}
       activeClassName='navigationItem_active'
     >
       <p dangerouslySetInnerHTML={{ __html: (icons as any)[title] }} />
-      <span className={styles.navigationItem__title}>{title}</span>
+      <span className={`styles.navigationItem__title.${expandedState}`}>{title}</span>
     </NavLink>
   );
   return <>{route}</>

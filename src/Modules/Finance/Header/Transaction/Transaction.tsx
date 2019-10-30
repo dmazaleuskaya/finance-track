@@ -10,7 +10,7 @@ interface ITransactionProps {
 	nameChanged: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Transaction: React.FC<ITransactionProps> = props => {
+export const Transaction: React.FC<ITransactionProps> = React.memo( props => {
 	return (
 		<div className={styles.form}>
 			<h3 className={styles.title}>Transaction</h3>
@@ -36,4 +36,4 @@ export const Transaction: React.FC<ITransactionProps> = props => {
 			</button>
 		</div>
 	);
-}
+} );

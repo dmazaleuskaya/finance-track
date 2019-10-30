@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { TargetSum } from './TargetSum/TargetSum';
-import { Total } from './Total/Total';
-import { Transaction } from './Transaction/Transaction';
+import { TargetSum } from './TargetSum';
+import { Total } from './Total';
+import { Transaction } from './Transaction';
 
 import styles from './Header.module.css';
 
-type IHeaderProps = {
+type THeaderProps = {
 
 }
 
-type IHeaderState = {
+type THeaderState = {
 	targetSumValue: string,
 	targetSumConfirmed: boolean,
 	totalSum: number,
@@ -19,7 +19,7 @@ type IHeaderState = {
 	transactor: string
 }
 
-export class Header extends React.Component<IHeaderProps, IHeaderState> {
+export class Header extends React.Component<THeaderProps, THeaderState> {
 
 	state = {
 		targetSumValue: '',

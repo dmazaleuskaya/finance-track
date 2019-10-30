@@ -13,7 +13,7 @@ interface ITargetSumProps {
 	touched: boolean
 }
 
-export const TargetSum: React.FC<ITargetSumProps> = props => {
+export const TargetSum: React.FC<ITargetSumProps> = React.memo( props => {
 	let Input: React.ReactElement;
 	 	if (props.confirmed)  {
 		 Input = (<span className={styles.input_confirmed}>Current target sum is: { props.value } USD</span>);
@@ -69,4 +69,4 @@ export const TargetSum: React.FC<ITargetSumProps> = props => {
 			{Buttons}
 		</div>
 	);
-}
+} );
