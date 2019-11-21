@@ -15,8 +15,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --print-config ./App/App.tsx | eslint-config-prettier-check"
+    "format": "prettier-eslint --write \"src/**/*.tsx|*.ts\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -40,6 +46,9 @@
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
-    "prettier-eslint": "^9.0.0"
+    "husky": "^3.1.0",
+    "lint-staged": "^10.0.0-beta.4",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
   }
 }
