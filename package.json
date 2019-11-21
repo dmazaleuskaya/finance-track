@@ -14,15 +14,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier-eslint --write \"src/**/*.tsx|*.ts\""
+    "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {},
+  "lint-staged": {
+    "src/**/*.tsx|*.ts": "prettier-eslint --write \"src/**/*.tsx|*.ts\""
+  },
   "browserslist": {
     "production": [
       ">0.2%",

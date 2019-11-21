@@ -8,7 +8,7 @@ interface INavigationProps {
     routes: IRoute[];
 }
 interface INavigationState {
-    navigationExpanded: boolean;
+    navigationExpanded: string;
 }
 
 export class Navigation extends React.Component<
