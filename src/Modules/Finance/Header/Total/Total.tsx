@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from '../Form.module.css';
 
 interface ITotalProps {
@@ -7,10 +8,11 @@ interface ITotalProps {
 }
 
 export const Total: React.FC<ITotalProps> = (props: ITotalProps) => {
+    const {value} = props;
     return (
         <div className={styles.Form}>
             <h3 className={styles.Title}>Total</h3>
-            <input className={styles.Input} type="text" value={props.value} />
+            <input className={styles.Input} type="text" value={value} />
         </div>
     );
 };

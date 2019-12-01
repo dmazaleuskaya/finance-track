@@ -1,14 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import {TargetSum} from './TargetSum/TargetSum';
 import {Total} from './Total/Total';
 import {Transaction} from './Transaction/Transaction';
-
 import styles from './Header.module.css';
 
 type IHeaderProps = {};
 
 type IHeaderState = {
-    targetSumValue: string | number | any;
+    targetSumValue: string | number;
     targetSumConfirmed: boolean;
     totalSum: string;
     currentTransactionValue: string;
@@ -26,24 +25,29 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
         this.setState({targetSumConfirmed: true});
     };
 
-    targetSumInputChangedHandler = (event: any) => {
-        this.setState({targetSumValue: event.target.value});
+    targetSumInputChangedHandler = (e: React.FormEvent<EventTarget>): void => {
+        const target = e.target as HTMLInputElement;
+        this.setState({targetSumValue: target.value});
     };
 
     render() {
+        const {
+            targetSumValue,
+            targetSumConfirmed,
+            currentTransactionValue,
+            totalSum
+        } = this.state;
         return (
             <div className={styles.Header}>
                 <TargetSum
-                    value={this.state.targetSumValue}
-                    buttonValue={
-                        this.state.targetSumConfirmed ? 'Correct' : 'Confirm'
-                    }
+                    value={targetSumValue}
+                    buttonValue={targetSumConfirmed ? 'Correct' : 'Confirm'}
                     clicked={this.targetSumConfirmedHandler}
                     changed={this.targetSumInputChangedHandler}
-                    confirmed={this.state.targetSumConfirmed}
+                    confirmed={targetSumConfirmed}
                 />
-                <Total value={this.state.totalSum} />
-                <Transaction value={this.state.currentTransactionValue} />
+                <Total value={totalSum} />
+                <Transaction value={currentTransactionValue} />
             </div>
         );
     }

@@ -3,6 +3,7 @@ import {TransitionStatus} from 'react-transition-group/Transition';
 import {NavLink} from 'react-router-dom';
 import icons from '../../../shared/icons';
 
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './NavigationItem.module.css';
 
 export interface IRoute {
@@ -22,7 +23,7 @@ export const NavigationItem: React.FC<INavigationItemProps> = props => {
     return (
         <NavLink
             to={path}
-            exact={true}
+            exact
             className={`styles.navigationItem styles.navigationItem_${expandedState}`}
             activeClassName={styles.navigationItem_active}>
             <p

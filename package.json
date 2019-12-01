@@ -14,15 +14,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .tsx,.ts --fix src/",
+    "prepush": "yarn run lint && yarn run test"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-push": "prepush"
     }
   },
   "lint-staged": {
-    "src/**/*.tsx|*.ts": "prettier-eslint --write \"src/**/*.tsx|*.ts\""
+    "src/**/*.tsx|*.ts": "yarn lint"
   },
   "browserslist": {
     "production": [
@@ -44,12 +46,17 @@
     "@types/react-router": "^5.1.1",
     "@types/react-router-dom": "^5.1.0",
     "@types/react-transition-group": "^4.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
     "husky": "^3.1.0",
     "lint-staged": "^10.0.0-beta.4",
-    "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier": "^1.18.2"
   }
 }
