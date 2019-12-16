@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Navigation} from '../shell/navigation';
 import {Finance} from '../Modules/Finance';
 import {Main} from '../Modules/Main';
@@ -28,7 +28,7 @@ class App extends React.Component<IAppProps, IAppState> {
     public render() {
         const {routes} = this.state;
         return (
-            <Router>
+            <BrowserRouter>
                 <Switch>
                     <section className={styles.pageWrapper}>
                         <Navigation routes={routes} />
@@ -38,7 +38,7 @@ class App extends React.Component<IAppProps, IAppState> {
                         </div>
                     </section>
                 </Switch>
-            </Router>
+            </BrowserRouter>
         );
     }
 }

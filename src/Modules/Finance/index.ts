@@ -1,1 +1,1 @@
-export {FinanceLayout as Finance} from './FinanceLayout';
+export {Finance} from './Finance';
