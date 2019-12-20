@@ -1,9 +1,10 @@
 import * as React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Navigation} from '../shell/navigation';
 import {Finance} from '../Modules/Finance';
 import {Main} from '../Modules/Main';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import styles from './App.module.css';
+
 interface IAppProps {}
 
 interface IRoute {
@@ -25,18 +26,19 @@ class App extends React.Component<IAppProps, IAppState> {
     };
 
     public render() {
+        const {routes} = this.state;
         return (
-            <Router>
+            <BrowserRouter>
                 <Switch>
                     <section className={styles.pageWrapper}>
-                        <Navigation routes={this.state.routes} />
+                        <Navigation routes={routes} />
                         <div className={styles.contentArea}>
-                            <Route path="/" exact={true} component={Main} />
+                            <Route path="/" exact component={Main} />
                             <Route path="/finance" component={Finance} />
                         </div>
                     </section>
                 </Switch>
-            </Router>
+            </BrowserRouter>
         );
     }
 }

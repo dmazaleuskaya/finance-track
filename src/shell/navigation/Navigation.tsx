@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {CSSTransition} from 'react-transition-group';
 import {NavigationItem, IRoute} from './navigationItem/NavigationItem';
 
@@ -23,11 +23,14 @@ export class Navigation extends React.Component<
         const {navigationExpanded} = this.state;
         this.setState({navigationExpanded: !navigationExpanded});
     };
+
     render() {
+        const {navigationExpanded} = this.state;
+        const {routes} = this.props;
         return (
             <div
                 className={
-                    this.state.navigationExpanded
+                    navigationExpanded
                         ? styles.navigation_expanded
                         : styles.navigation
                 }>
@@ -38,7 +41,7 @@ export class Navigation extends React.Component<
                     <span className={styles.navigation__toggle_logo}>FT</span>
                     <span
                         className={
-                            this.state.navigationExpanded
+                            navigationExpanded
                                 ? styles.navigation__toggle_text_visible
                                 : styles.navigation__toggle_text
                         }>
@@ -46,18 +49,18 @@ export class Navigation extends React.Component<
                     </span>
                 </button>
                 <CSSTransition
-                    in={this.state.navigationExpanded}
+                    in={navigationExpanded}
                     timeout={300}
                     classNames={styles.navigation__routes}>
                     {state => (
                         <div className={styles.navigation__routes}>
-                            {this.props.routes.map((route, index) => {
+                            {routes.map((route, index) => {
                                 return (
                                     <React.Fragment key={index}>
                                         <NavigationItem
                                             {...route}
                                             navigationExpanded={
-                                                this.state.navigationExpanded
+                                                navigationExpanded
                                             }
                                             expandedState={state}
                                         />
